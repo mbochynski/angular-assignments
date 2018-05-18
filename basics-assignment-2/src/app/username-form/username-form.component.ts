@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsernameFormComponent implements OnInit {
   username = '';
-  
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  isResetButtonDisabled() {
+    return this.username === '';
   }
 
 }

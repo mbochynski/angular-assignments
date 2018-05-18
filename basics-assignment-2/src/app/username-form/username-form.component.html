@@ -1,3 +1,7 @@
 <input type="text" name="username" [(ngModel)]="username">
 <p>Your username is: {{ username }}</p>
-<button class="btn">Reset username</button>
+<button
+  class="btn"
+  [disabled]="isResetButtonDisabled()">
+  Reset username
+</button>
