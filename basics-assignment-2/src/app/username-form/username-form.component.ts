@@ -17,4 +17,8 @@ export class UsernameFormComponent implements OnInit {
     return this.username === '';
   }
 
+  onUsernameReset() {
+    this.username = '';
+  }
+
 }

@@ -2,6 +2,7 @@
 <p>Your username is: {{ username }}</p>
 <button
   class="btn"
-  [disabled]="isResetButtonDisabled()">
+  [disabled]="isResetButtonDisabled()"
+  (click)="onUsernameReset()">
   Reset username
 </button>
