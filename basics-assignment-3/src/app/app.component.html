@@ -17,6 +17,9 @@
         class="btn"
         (click)="onButtonClick()">Display details</button>
       <p *ngIf="secretHidden">Some secret you want to hide</p>
+      <ul>
+        <li *ngFor="let value of log">{{ value }}</li>
+      </ul>
     </div>
   </div>
 </div>

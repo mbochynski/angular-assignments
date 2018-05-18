@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   secretHidden = false;
+  log = [];
 
   onButtonClick() {
     this.secretHidden = !this.secretHidden;
+    this.log.push(Date.now());
   }
 }
