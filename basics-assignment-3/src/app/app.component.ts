@@ -13,4 +13,12 @@ export class AppComponent {
     this.secretHidden = !this.secretHidden;
     this.log.push(Date.now());
   }
+
+  isLogListLongEnough() {
+    return this.log.length >= 5;
+  }
+
+  getLogListColor() {
+    return this.isLogListLongEnough() ? 'blue' : 'initial';
+  }
 }
