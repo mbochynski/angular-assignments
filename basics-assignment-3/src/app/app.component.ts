@@ -14,11 +14,11 @@ export class AppComponent {
     this.log.push(Date.now());
   }
 
-  isLogListLongEnough() {
-    return this.log.length >= 5;
+  isLogListLongEnough(index) {
+    return index >= 4;
   }
 
-  getLogListColor() {
-    return this.isLogListLongEnough() ? 'blue' : 'initial';
+  getLogListColor(index) {
+    return this.isLogListLongEnough(index) ? 'blue' : 'initial';
   }
 }

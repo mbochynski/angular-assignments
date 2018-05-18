@@ -17,10 +17,13 @@
         class="btn"
         (click)="onButtonClick()">Display details</button>
       <p *ngIf="secretHidden">Some secret you want to hide</p>
-      <ul
-        [ngStyle]="{ background: getLogListColor() }"
-        [ngClass]="{ highlighted: isLogListLongEnough() }">
-        <li *ngFor="let value of log">{{ value }}</li>
+      <ul>
+        <li
+          *ngFor="let value of log; index as i"
+          [ngStyle]="{ background: getLogListColor(i) }"
+          [ngClass]="{ highlighted: isLogListLongEnough(i) }">
+          {{ value }}
+        </li>
       </ul>
     </div>
   </div>
