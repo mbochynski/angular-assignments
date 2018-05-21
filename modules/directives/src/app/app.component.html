@@ -13,6 +13,7 @@
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
+      <div *appUnless="onlyOdd">some even content</div>
       <p appBasicHighlight>Some highlighted text</p>
       <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Some better highlighted text</p>
     </div>
