@@ -19,7 +19,20 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <app-game-control></app-game-control>
+      <app-game-control (tick)="onTick($event)"></app-game-control>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul>
+        <li *ngFor="let number of numbers">
+          <app-odd *ngIf="number % 2 != 0; else even" [number]="number"></app-odd>
+          <ng-template #even>
+            <app-even [number]="number"></app-even>
+          </ng-template>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
+
