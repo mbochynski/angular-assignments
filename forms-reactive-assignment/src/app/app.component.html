@@ -12,8 +12,32 @@
 
           Also implement that Validator as an async Validator (replace the other one)
 
-          Upon submitting the form, simply print the value to the console
-      -->
+          Upon submitting the form, simply print the value to the console -->
+      <form [formGroup]="projectForm" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+          <label for="projectName">
+            <input
+              id="projectName" 
+              class="form-control"
+              type="text" 
+              formControlName="name">
+          </label>
+        </div>
+        <p *ngIf="isProjectNameInvalid() && isProjectNameDirty()">
+          <span *ngIf="getProjectNameErrors()['required']">Project name is required</span>
+          <span *ngIf="getProjectNameErrors()['invalid']">Project name is invalid</span>
+        </p>
+        <div class="form-group">
+          <label for="mail">
+            <input
+              id="mail" 
+              class="form-control"
+              type="email" 
+              formControlName="mail">
+          </label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 </div>
