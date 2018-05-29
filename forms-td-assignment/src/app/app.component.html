@@ -1,6 +1,38 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form #f="ngForm" (ngSubmit)="handleSubmit()">
+        <label>
+          Email:
+          <input
+            type="email"
+            name="email"
+            required
+            email
+            ngModel
+            #email="ngModel">
+        </label>
+        <p *ngIf="email.invalid && email.touched">Email in correct format is required</p>
+        <select name="subscription" ngModel>
+          <option
+            *ngFor="let subscription of subscriptionOptions"
+            [value]="subscription"
+            [selected]="subscription == defaultSubscription">
+            {{ subscription }}
+          </option>
+        </select>
+        <label>
+          password
+          <input
+            type="password"
+            name="password"
+            required
+            ngModel
+            #password="ngModel">
+        </label>
+        <p *ngIf="password.invalid && password.touched">Password is required</p>
+        <button type="submit" [disabled]="f.invalid">Submit</button>
+      </form>
       <!-- Add a Form with the following Inputs (and Validators)
            1) Mail address (should not be empty and should be an email address)
            2) A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro")
