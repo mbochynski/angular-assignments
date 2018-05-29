@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form #f="ngForm" (ngSubmit)="handleSubmit()">
-        <label>
+        <label for="email">
           Email:
           <input
+            id="email"
             type="email"
             name="email"
             required
@@ -21,9 +22,10 @@
             {{ subscription }}
           </option>
         </select>
-        <label>
+        <label for="password">
           password
           <input
+            id="password"
             type="password"
             name="password"
             required
