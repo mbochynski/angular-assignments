@@ -11,6 +11,14 @@ export class AppComponent {
   defaultQuestion = 'pet';
   @ViewChild('f') myForm: NgForm;
   genders = ['male', 'female'];
+  submitted = false;
+  user = {
+    username: '',
+    mail: '',
+    question: '',
+    answer: '',
+    gender: '',
+  }
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -23,5 +31,23 @@ export class AppComponent {
  
   onSubmit() {
     console.log(this.myForm);
+    const {
+      userData: {
+        username,
+        email: mail,
+      },
+      secret: question,
+      questionAnswer: answer,
+      gender,
+    } = this.myForm.value;
+
+    this.user = {
+      username,
+      mail,
+      question,
+      answer,
+      gender
+    };
+    this.submitted = true;
   }
 }
