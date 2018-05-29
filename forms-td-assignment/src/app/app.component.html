@@ -14,11 +14,10 @@
             #email="ngModel">
         </label>
         <p *ngIf="email.invalid && email.touched">Email in correct format is required</p>
-        <select name="subscription" ngModel>
+        <select name="subscription" [ngModel]="defaultSubscription">
           <option
             *ngFor="let subscription of subscriptionOptions"
-            [value]="subscription"
-            [selected]="subscription == defaultSubscription">
+            [value]="subscription">
             {{ subscription }}
           </option>
         </select>
