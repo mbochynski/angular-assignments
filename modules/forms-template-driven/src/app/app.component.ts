@@ -49,5 +49,7 @@ export class AppComponent {
       gender
     };
     this.submitted = true;
+
+    this.myForm.reset();
   }
 }
