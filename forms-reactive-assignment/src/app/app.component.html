@@ -36,6 +36,16 @@
               formControlName="mail">
           </label>
         </div>
+        <p *ngIf="isEmailInvalid() && isEmailDirty()">
+          <span>Valid email is required</span>
+        </p>
+        <div class="form-group">
+          <select class="form-control" formControlName="status">
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
         <button type="submit">Submit</button>
       </form>
     </div>

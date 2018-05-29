@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
   }
 
   isProjectNameDirty() {
-    return this.projectForm.controls.name.dirty;
+    const control = this.projectForm.controls.name;
+    return control.dirty || control.touched;
   }
 
   isProjectNameInvalid() {
@@ -40,5 +41,14 @@ export class AppComponent implements OnInit {
   
   getProjectNameErrors() {
     return this.projectForm.controls.name.errors;
+  }
+
+  isEmailDirty() {
+    const control = this.projectForm.controls.mail;
+    return control.dirty || control.touched;
+  }
+
+  isEmailInvalid() {
+    return this.projectForm.controls.mail.invalid;
   }
 }
