@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  answer = '';
   defaultQuestion = 'pet';
   @ViewChild('f') myForm: NgForm;
 
