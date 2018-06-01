@@ -9,4 +9,8 @@ export class ServerService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.post('https://angularcourse-466aa.firebaseio.com/data.json', servers, { headers });
   }
+
+  getServers() {
+    return this.http.get('https://angularcourse-466aa.firebaseio.com/data.json');
+  }
 }
