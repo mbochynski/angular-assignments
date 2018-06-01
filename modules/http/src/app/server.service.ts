@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers, Response } from "@angular/http";
-import { map } from "rxjs/operators"
+import { map, catchError } from "rxjs/operators"
+import { throwError } from "rxjs";
 
 @Injectable()
 export class ServerService {
@@ -12,9 +13,14 @@ export class ServerService {
   }
 
   getServers() {
-    return this.http.get('https://angularcourse-466aa.firebaseio.com/data.json')
+    return this.http.get('https://angularcourse-466aa.firebaseio.com/data')
       .pipe(
-        map((response: Response) => response.json())
+        map((response: Response) => response.json()),
+        catchError((error: Response) => {
+          console.log('catch', error);
+
+          return throwError('Something went wrong');
+        })
       );
   }
 }
