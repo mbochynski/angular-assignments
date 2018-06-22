@@ -45,6 +45,21 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       ],
     ),
     ]),
+    trigger('list1', [
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100px)',
+        }),
+        animate(300),
+      ]),
+      transition('* => void', [
+        animate(300, style({
+          opacity: 0,
+          transform: 'translateX(-100px)',
+        })),
+      ]),
+    ]),
   ],
 })
 export class AppComponent {
@@ -54,6 +69,10 @@ export class AppComponent {
 
   onAdd(item) {
     this.list.push(item);
+  }
+
+  onDelete(item) {
+    this.list.pop();
   }
 
   onAnimate() {
