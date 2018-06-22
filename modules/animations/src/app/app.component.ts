@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { Transform } from 'stream';
 
 @Component({
   selector: 'app-root',
@@ -52,6 +53,30 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
           transform: 'translateX(-100px)',
         }),
         animate(300),
+      ]),
+      transition('* => void', [
+        animate(300, style({
+          opacity: 0,
+          transform: 'translateX(-100px)',
+        })),
+      ]),
+    ]),
+    trigger('list2', [
+      transition('void => *', [
+        animate(1000, keyframes([
+          style({
+            transform: 'translateX(-100px)',
+          }),
+          style({
+            transform: 'translateX(-20px)',
+          }),
+          style({
+            transform: 'translateX(20px)',
+          }),
+          style({
+            transform: 'translateX(0px)',
+          }),
+        ])),
       ]),
       transition('* => void', [
         animate(300, style({
